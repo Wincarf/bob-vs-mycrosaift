@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-mono: 'Courier New', Courier, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background-color: #0a0a0f;
+  color: #e2e8f0;
+  font-family: var(--font-mono), monospace;
+  margin: 0;
+  padding: 0;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0f0f1a;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e1e2e;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2e2e4e;
+}
+
+/* Terminal blink cursor */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+.cursor-blink::after {
+  content: '█';
+  animation: blink 1s step-start infinite;
+  color: #00ff88;
+  font-size: 0.9em;
+}
+
+/* Glow effects */
+.bob-glow {
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.1), 0 0 40px rgba(0, 255, 136, 0.05);
+}
+.mycrosaift-glow {
+  box-shadow: 0 0 20px rgba(255, 51, 102, 0.1), 0 0 40px rgba(255, 51, 102, 0.05);
+}
+.bob-glow-active {
+  box-shadow: 0 0 30px rgba(0, 255, 136, 0.25), 0 0 60px rgba(0, 255, 136, 0.1);
+  border-color: #00ff88 !important;
+}
+.mycrosaift-glow-active {
+  box-shadow: 0 0 30px rgba(255, 51, 102, 0.25), 0 0 60px rgba(255, 51, 102, 0.1);
+  border-color: #ff3366 !important;
+}
+
+/* Code diff */
+.diff-added {
+  background-color: rgba(0, 255, 136, 0.08);
+  color: #00ff88;
+}
+.diff-removed {
+  background-color: rgba(255, 51, 102, 0.08);
+  color: #ff3366;
+}
+.diff-context {
+  color: #64748b;
+}
+
+/* Validated pulse */
+@keyframes validated-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(0, 255, 136, 0.6); }
+  70% { box-shadow: 0 0 0 30px rgba(0, 255, 136, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(0, 255, 136, 0); }
+}
+.validated-pulse {
+  animation: validated-pulse 1.5s ease-out 3;
+}
+
+/* Number counter animation */
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.count-anim {
+  animation: countUp 0.4s ease-out;
+}
